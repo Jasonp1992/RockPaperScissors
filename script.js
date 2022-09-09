@@ -3,30 +3,18 @@ let score = 0;
 let input = "";
 let comps = getComputerInput();
 
-let rock = document.querySelector(".rock");
-let paper = document.querySelector(".paper");
-let scissors = document.querySelector(".scissors");
-let container = document.querySelector(".container");
+let buttonInput = document.querySelectorAll("button");
 
-function userInput() {
-  scissors.onclick = function () {
-    input = "scissors";
-    oneRound(comps, input);
-  };
-  paper.onclick = function () {
-    input = "paper";
-    oneRound(comps, input);
-  };
-  rock.onclick = function () {
-    input = "rock";
-    oneRound(comps, input);
-  };
-}
+let userInput = '';
+
+buttonInput[0].addEventListener('click', function() {
+  userInput = 'rock';
+});
+
 
 function game() {
   for (let i = 0; i < 5; i++) {
     let compInput = getComputerInput();
-    let userInput = getInput();
 
     if (
       userInput == selctArr[0] ||
