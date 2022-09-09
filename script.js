@@ -1,7 +1,27 @@
 let selctArr = ["rock", "paper", "scissors"];
 let score = 0;
+let input = "";
+let comps = getComputerInput();
 
-game();
+let rock = document.querySelector(".rock");
+let paper = document.querySelector(".paper");
+let scissors = document.querySelector(".scissors");
+let container = document.querySelector(".container");
+
+function userInput() {
+  scissors.onclick = function () {
+    input = "scissors";
+    oneRound(comps, input);
+  };
+  paper.onclick = function () {
+    input = "paper";
+    oneRound(comps, input);
+  };
+  rock.onclick = function () {
+    input = "rock";
+    oneRound(comps, input);
+  };
+}
 
 function game() {
   for (let i = 0; i < 5; i++) {
@@ -25,7 +45,7 @@ function game() {
   } else if (score < 0) {
     return console.log("Sorry You Loose Score = " + score);
   } else {
-    return console.log("Its a Tie Score = " + score)
+    return console.log("Its a Tie Score = " + score);
   }
 }
 
@@ -46,12 +66,6 @@ function oneRound(comp, user) {
     score = score - 1;
     return console.log(`You loose: ${user} dosn't beat ${comp}.`);
   }
-}
-
-//get user input
-function getInput() {
-  let userRawInput = window.prompt("rock, paper, or scissors?");
-  return userRawInput.toLowerCase();
 }
 
 //gets random section from computer
