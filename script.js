@@ -7,35 +7,43 @@ let comp = "";
 const buttonInput = document.querySelectorAll("button");
 
 buttonInput[0].addEventListener("click", function () {
+  roundCounter();
   user = "rock";
   comp = getComputerInput();
   oneRound(comp, user);
   round++;
-  if (round === 3) {
+  if (round === 5) {
     winLoose(score);
     zeroGame();
   }
 });
 buttonInput[1].addEventListener("click", function () {
+  roundCounter();
   user = "paper";
   comp = getComputerInput();
   oneRound(comp, user);
   round++;
-  if (round === 3) {
+  if (round === 5) {
     winLoose(score);
-    zeroGame();
+    zeroGame();  
   }
 });
 buttonInput[2].addEventListener("click", function () {
+  roundCounter();
   user = "scissors";
   comp = getComputerInput();
   oneRound(comp, user);
   round++;
-  if (round === 3) {
+  if (round === 5) {
     winLoose(score);
-    zeroGame();
+    zeroGame();  
   }
 });
+
+let roundCounter = () => {
+  let roundcounter = document.querySelector(".roundCounter");
+  roundcounter.textContent = `Round ${round+1}`;
+};
 
 //fucntion that prints win or loose and the score
 let winLoose = (score) => {
