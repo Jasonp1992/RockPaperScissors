@@ -39,17 +39,14 @@ buttonInput[2].addEventListener("click", function () {
 
 //fucntion that prints win or loose and the score
 let winLoose = (score) => {
-  const container = document.querySelector(".container");
-  const content = document.createElement("p");
-  content.classList.add("content");
+  const container = document.querySelector(".winner");
   if (score === 0) {
-    content.textContent = "Its a tie";
+    container.textContent = `Its a Tie score: ${score}`;
   } else if (score > 0) {
-    content.textContent = "You Win";
+    container.textContent = `You Win score: ${score}`;
   } else {
-    content.textContent = "You Loose";
+    container.textContent = `You Loose score; ${score}`;
   }
-  container.appendChild(content);
 };
 
 let zeroGame = () => {
