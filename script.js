@@ -1,64 +1,83 @@
-let selctArr = ["rock", "paper", "scissors"];
+const selctArr = ["rock", "paper", "scissors"];
 let score = 0;
-let input = "";
-let comps = getComputerInput();
+let round = 0;
+let user = '';
+let comp = '';
 
-let buttonInput = document.querySelectorAll("button");
+const buttonInput = document.querySelectorAll("button");
+const container = document.querySelector('.container')
 
-let userInput = '';
-
-buttonInput[0].addEventListener('click', function() {
-  userInput = 'rock';
+buttonInput[0].addEventListener("click", function () {
+  user = "rock";
+  comp = getComputerInput();
+  oneRound(comp, user);
+  round++;
+  if (round === 3) {
+    winLoose(score);
+    zeroGame();
+  }
+});
+buttonInput[1].addEventListener("click", function () {
+  user = "paper";
+  comp = getComputerInput();
+  oneRound(comp, user);
+  round++;
+  if (round === 3) {
+    winLoose(score);
+    zeroGame();
+  }
+});
+buttonInput[2].addEventListener("click", function () {
+  user = "scissors";
+  comp = getComputerInput();
+  oneRound(comp, user);
+  round++;
+  if (round === 3) {
+    winLoose(score);
+    zeroGame();
+  }
 });
 
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    let compInput = getComputerInput();
-
-    if (
-      userInput == selctArr[0] ||
-      userInput == selctArr[1] ||
-      userInput == selctArr[2]
-    ) {
-      oneRound(compInput, userInput);
-      console.log(score);
-    } else {
-      alert("input not valid");
-    }
+//fucntion that prints win or loose and the score
+let winLoose = (score) => {
+  if (score === 0) {
+    return console.log('Its A tie')
   }
-
-  if (score > 0) {
-    return console.log("You Win!!! Score = " + score);
-  } else if (score < 0) {
-    return console.log("Sorry You Loose Score = " + score);
-  } else {
-    return console.log("Its a Tie Score = " + score);
+  else if (score > 0) {
+    return console.log('You Win')
   }
-}
+  else {
+    return console.log('You Loose')
+  }
+};
+
+let zeroGame = () => {
+  score = 0;
+  round = 0;
+};
 
 //plays one round of rps
 function oneRound(comp, user) {
   if (comp == user) {
-    return console.log("its a tie");
+    score = score + 0;
+    console.log('tie')
   } else if (comp == selctArr[0] && user == selctArr[1]) {
     score = score + 1;
-    return console.log("You Win!! paper beats rock!");
+    console.log('rock')
   } else if (comp == selctArr[1] && user == selctArr[2]) {
     score = score + 1;
-    return console.log("You Win!! scissors beats paper!");
+    console.log('paper')
   } else if (comp == selctArr[2] && user == selctArr[0]) {
     score = score + 1;
-    return console.log("You Win!! rock beats scissors!");
+    console.log('scissors')
   } else {
     score = score - 1;
-    return console.log(`You loose: ${user} dosn't beat ${comp}.`);
+    console.log('loose' + ' ' + comp)
   }
-}
+};
 
-//gets random section from computer
+//gets random input from computer
 function getComputerInput() {
-  //sets rdmNum to 0-2
   let rdmNum = Math.floor(Math.random() * 3);
   return selctArr[rdmNum];
-}
+};
