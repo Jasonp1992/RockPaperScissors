@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Rock Paper Scissors Game</title>
-</head>
-<body>
-    <h1>Rock Paper Scissors</h1>
-
-    <div class="round-container">
-        <p class="roundCounter">Round</p>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Rock Paper Scissors</h1>
     </div>
 
-    <div class="button-container">
-        <button class="rock">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
-    </div>
+    <div class="main">
+      <div class="game-feild">
+        <div class="left-buttons">
+          <h2>Player</h2>
+          <button class="rock">
+            <img src="./images/retro-offset-rock-icons.png" />
+          </button>
+          <button class="paper">
+            <img src="./images/retro-offset-paper-icons.png" />
+          </button>
+          <button class="scissors">
+            <img src="./images/retro-offset-scissors-icons.png" />
+          </button>
+        </div>
 
-    <div class="container">
+        <div class="right-buttons">
+          <h2>Computer</h2>
+          <button class="rock">
+            <img src="./images/retro-offset-rock-icons.png" />
+          </button>
+          <button class="paper">
+            <img src="./images/retro-offset-paper-icons.png" />
+          </button>
+          <button class="scissors">
+            <img src="./images/retro-offset-scissors-icons.png" />
+          </button>
+        </div>
+      </div>
+
+      <div class="round-counter">
+        <p class="round">Round</p>
+      </div>
+
+      <div class="score-counter">
+        <p class="score">Score: 0</p>
+      </div>
+
+      <div class="container">
         <p class="winner"></p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>footer</p>
     </div>
 
     <script src="script.js"></script>
-</body>
+
+    <!--
+      <h1>Rock Paper Scissors</h1>
+
+    <div class="game-info">
+      <h3 class="game-info-title">Test Yourself Against The Computer</h3>
+      <p class="game-info-subtext">Best out of 5 rounds wins!!</p>
+    </div>
+    
+    <div class="round-container">
+      <p class="roundCounter">Round</p>
+    </div>
+
+    <div class="button-container">
+      <button class="rock">Rock</button>
+      <button class="paper">Paper</button>
+      <button class="scissors">Scissors</button>
+    </div>
+
+    <div class="container">
+      <p class="winner"></p>
+    </div>
+
+    <script src="script.js"></script>
+    -->
+  </body>
 </html>

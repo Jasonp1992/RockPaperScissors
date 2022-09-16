@@ -1,5 +1,84 @@
 body {
     display: flex;
     flex-direction: column;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+}
+
+.header {
+    background-color: #393E41;
+    text-align: center;
+    font-size: x-large;
+    border-bottom: solid black 3px;
+    color: #44BBA4;
+}
+
+.game-feild {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main {
+    background-color: ##E7E5DF;
+    padding: 20px;
+}
+
+.right-buttons, .left-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 550px;
+    gap: 5px;
+}
+
+.footer {
+    background-color: #D3D0CB;
+}
+
+img {
+    height: 120px;
+}
+
+h2 {
+    margin: 0px;
+    text-decoration:wavy;
+}
+
+button {
+    transition: background-color .8s;
+    background-color: #393E41;
+    border: none;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.test {
+    background-color: #44BBA4;
+    box-shadow: gray;
+}
+
+.round-counter {
+    font-size: 30px;
+    font-style: oblique;
+    margin: 0px;
+}
+
+.winner {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.score-counter {
+    font-size: 25px;
+}
+
+.score-counter, .winner, .round-counter{
+    text-align: center;
 }

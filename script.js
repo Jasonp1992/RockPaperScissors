@@ -8,8 +8,13 @@ const buttonInput = document.querySelectorAll("button");
 
 buttonInput[0].addEventListener("click", function () {
   roundCounter();
+  scoreCounter();
+  buttonInput[0].classList.add("test");
   user = "rock";
-  comp = getComputerInput();
+  let compNum = randomNum();
+  comp = getComputerInput(compNum);
+  buttonInput[compNum + 3].classList.add("test");
+  console.log(comp)
   oneRound(comp, user);
   round++;
   if (round === 5) {
@@ -17,43 +22,59 @@ buttonInput[0].addEventListener("click", function () {
     zeroGame();
   }
 });
+
 buttonInput[1].addEventListener("click", function () {
   roundCounter();
+  scoreCounter();
+  buttonInput[1].classList.add("test");
   user = "paper";
-  comp = getComputerInput();
+  let compNum = randomNum();
+  comp = getComputerInput(compNum);
+  buttonInput[compNum + 3].classList.add("test");
+  console.log(comp)
   oneRound(comp, user);
   round++;
   if (round === 5) {
     winLoose(score);
-    zeroGame();  
+    zeroGame();
   }
 });
 buttonInput[2].addEventListener("click", function () {
   roundCounter();
+  scoreCounter();
+  buttonInput[2].classList.add("test");
   user = "scissors";
-  comp = getComputerInput();
+  let compNum = randomNum();
+  comp = getComputerInput(compNum);
+  buttonInput[compNum + 3].classList.add("test");
+  console.log(comp)
   oneRound(comp, user);
   round++;
   if (round === 5) {
     winLoose(score);
-    zeroGame();  
+    zeroGame();
   }
 });
 
 let roundCounter = () => {
-  let roundcounter = document.querySelector(".roundCounter");
-  roundcounter.textContent = `Round ${round+1}`;
+  let roundcounter = document.querySelector(".round");
+  roundcounter.textContent = `Round ${round + 1}`;
+};
+
+let scoreCounter = () => {
+  let scoreholder = document.querySelector('.score');
+  scoreholder.textContent = `Score: ${score}`;
 };
 
 //fucntion that prints win or loose and the score
 let winLoose = (score) => {
   const container = document.querySelector(".winner");
   if (score === 0) {
-    container.textContent = `Its a Tie score: ${score}`;
+    alert(`Its a Tie`);
   } else if (score > 0) {
-    container.textContent = `You Win score: ${score}`;
+    alert(`You Win!!`)
   } else {
-    container.textContent = `You Loose score; ${score}`;
+    alert(`You Loose :(`)
   }
 };
 
@@ -78,7 +99,21 @@ function oneRound(comp, user) {
 }
 
 //gets random input from computer
-function getComputerInput() {
+function randomNum() {
   let rdmNum = Math.floor(Math.random() * 3);
-  return selctArr[rdmNum];
+  return rdmNum;
+}
+
+function getComputerInput(num) {
+  return selctArr[num];
+}
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) =>
+  button.addEventListener("transitionend", removeTransition)
+);
+
+function removeTransition(e) {
+  if (e.propertyName !== "background-color") return;
+  this.classList.remove("test");
 }
