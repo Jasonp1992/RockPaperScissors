@@ -70,11 +70,11 @@ let scoreCounter = () => {
 let winLoose = (score) => {
   const container = document.querySelector(".winner");
   if (score === 0) {
-    alert(`Its a Tie`);
+    setTimeout(function(){ alert("Its a Tie"); }, 500);
   } else if (score > 0) {
-    alert(`You Win!!`)
+    setTimeout(function(){ alert("You Win!!"); }, 500);
   } else {
-    alert(`You Loose :(`)
+    setTimeout(function(){ alert("You Loose :("); }, 500);
   }
 };
 
